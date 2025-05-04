@@ -2,14 +2,16 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs';
 import { Employee } from './employee';
+import { environment } from '../environments/environment';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class EmployeeService {
 
-  private baseURL = "http://localhost:8080/api/v1/employees";
-
+  private baseURL = environment.apiUrl;
+  // private baseURL = "http://localhost:8081/api/v1/employees";
   constructor(private httpClient: HttpClient) { }
   
   getEmployeesList(): Observable<Employee[]>{
